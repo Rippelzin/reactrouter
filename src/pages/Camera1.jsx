@@ -7,8 +7,10 @@ const Camera1 = () => {
   const [image, setImage] = useState(null);
 
   return (
+    //conditional rendering linked toa button to change the view of the Camera Component
     <div>
       <h2>testse</h2>
+    
       <Camera className="camera"  facingMode={'environment'} aspectRatio= {16/9}  />
       <button onClick={() => setImage(camera.current.takePhoto())}>Take photo</button>
       <img src={image} alt='Taken photo'/>
