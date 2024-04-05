@@ -10,7 +10,7 @@ import ProtectedRoutes from './utils/ProtectedRoutes.jsx'
 import Login from './pages/Login.jsx'
 
 import {GoogleOAuthProvider} from "@react-oauth/google"
-import Camera1 from './pages/Camera1.jsx'
+import JogoPage from './pages/JogoPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
           },
           {
             path:'camera',
-            element: <Camera1 />
+            element: <JogoPage />
           }
         ]
       },

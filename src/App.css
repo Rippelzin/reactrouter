@@ -46,3 +46,11 @@
   width: 30vh;
   background-color: red;
 }
+
+.imageTaken{
+  height: 20vh;
+  width: 15vh;
+}
+#map{
+  height: 50vh;
+}

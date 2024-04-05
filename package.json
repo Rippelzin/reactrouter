@@ -12,10 +12,12 @@
   "dependencies": {
     "@react-oauth/google": "^0.12.1",
     "jwt-decode": "^4.0.0",
+    "leaflet": "^1.9.4",
     "react": "^18.2.0",
     "react-camera-pro-react-18": "^1.4.1",
     "react-dom": "^18.2.0",
     "react-html5-camera-photo": "^1.5.11",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
