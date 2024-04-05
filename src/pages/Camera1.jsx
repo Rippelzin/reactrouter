@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import {Camera } from "react-camera-pro-react-18";
+import '../App.css'
 
 const Camera1 = () => {
   const camera = useRef(null);
@@ -7,7 +8,8 @@ const Camera1 = () => {
 
   return (
     <div>
-      <Camera ref={camera} facingMode={'environment'}/>
+      <h2>testse</h2>
+      <Camera className="camera"  facingMode={'environment'} aspectRatio= {16/9}  />
       <button onClick={() => setImage(camera.current.takePhoto())}>Take photo</button>
       <img src={image} alt='Taken photo'/>
     </div>
