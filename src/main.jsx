@@ -11,6 +11,7 @@ import Login from './pages/Login.jsx'
 
 import {GoogleOAuthProvider} from "@react-oauth/google"
 import JogoPage from './pages/JogoPage.jsx'
+import CameraComponent from './components/CameraComponent.jsx'
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
             element: <Contact />
           },
           {
-            path:'camera',
+            path:'world',
             element: <JogoPage />
           }
         ]

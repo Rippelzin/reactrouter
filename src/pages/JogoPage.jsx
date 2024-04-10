@@ -19,7 +19,7 @@ function  comeBackToMap() {
 
 {abrirCamera ? (
                   <div>
-                        <button onClick={comeBackToMap}>Voltar</button>
+                        <button className="button-voltar" onClick={comeBackToMap}> voltaremos </button>
                         <CameraComponent />
                         
                   </div>
@@ -27,7 +27,7 @@ function  comeBackToMap() {
 
                 ) : (
                   <div>
-                      <MapComponent />
+                      <div> <MapComponent/> </div>
                       <button onClick={openCam}>Abrir Camera</button>
                   </div>
                     
