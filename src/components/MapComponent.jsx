@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, useMap, Marker, Popup, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, useMap, Marker, Popup, useMapEvents, Polygon } from 'react-leaflet'
 import { Icon, icon } from "leaflet";
 
 
@@ -39,6 +39,7 @@ function LocationMarker() {
   const map = useMapEvents({
     click: () => { //move
       map.locate()
+      
     },
     locationfound(e) {
       setPosition(e.latlng)
@@ -53,7 +54,14 @@ function LocationMarker() {
   )
 }
 
+const purpleOptions = { color: 'purple' }
+const polygon = [
+  [-29.966581, -51.157259],
+  [-29.964797, -51.111925],
+  [-29.908269, -51.074822],
+  [-29.885053, -51.098183]
 
+]
 
 
 
@@ -75,6 +83,7 @@ function LocationMarker() {
           
         ))}
         <LocationMarker />
+        <Polygon pathOptions={purpleOptions} positions={polygon}/>
         
         </MapContainer>
         
