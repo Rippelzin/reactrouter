@@ -37,15 +37,15 @@ const customIcon = new Icon({
 function LocationMarker() {
   const [position, setPosition] = useState(null)
   const map = useMapEvents({
-    click: () => { //move
-      map.locate()
-      
-    },
     locationfound(e) {
       setPosition(e.latlng)
       map.flyTo(e.latlng, map.getZoom())
     },
   })
+  useEffect(() => {
+    map.locate();
+  }, []); // Executa somente uma vez, quando o componente é montado
+
 
   return position === null ? null : (
     <Marker position={position}>
@@ -69,7 +69,7 @@ const polygon = [
     <div>
         <MapContainer 
         center={[ 0 , 0]} 
-        zoom={10}>
+        zoom={14}>
         
         <TileLayer 
           attribution='&copy; <a href="https://www.openstreetmap.org/copyrigth">OpenStreetMap</a> contributors'
