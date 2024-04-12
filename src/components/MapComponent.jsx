@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, useMap, Marker, Popup, useMapEvents } from 'react-leaflet'
 import { Icon, icon } from "leaflet";
-
 
 
 const MapComponent = () => {
@@ -35,11 +34,35 @@ const customIcon = new Icon({
   iconSize: [38,38]
 })
 
+function LocationMarker() {
+  const [position, setPosition] = useState(null)
+  const map = useMapEvents({
+    click: () => { //move
+      map.locate()
+    },
+    locationfound(e) {
+      setPosition(e.latlng)
+      map.flyTo(e.latlng, map.getZoom())
+    },
+  })
+
+  return position === null ? null : (
+    <Marker position={position}>
+      <Popup>You are here</Popup>
+    </Marker>
+  )
+}
+
+
+
+
+
   return (
     <div>
         <MapContainer 
-        center={[48.8566, 2.3522]} 
-        zoom={13}>
+        center={[ 0 , 0]} 
+        zoom={10}>
+        
         <TileLayer 
           attribution='&copy; <a href="https://www.openstreetmap.org/copyrigth">OpenStreetMap</a> contributors'
           url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -51,6 +74,7 @@ const customIcon = new Icon({
           
           
         ))}
+        <LocationMarker />
         
         </MapContainer>
         
