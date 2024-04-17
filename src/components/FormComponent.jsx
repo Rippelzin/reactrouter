@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 import style from "../styles/formComponent.module.css"
+import { useNavigate } from "react-router-dom";
 
 const FormComponent= () => {
 
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
 
+    const navigate = useNavigate();
+
 function handleFormSubmit(e){
     e.preventDefault();
-
+    navigate("/world")
+    
+/*
     axios.post("/endpoint", {
         "username": name,
         "password": password
@@ -20,11 +25,15 @@ function handleFormSubmit(e){
     )
 
     console.log("teste")
+*/
+    
 }
 
     return(
         <div className={style.formcomponent}>
+
             <div className={style.logo}>LOGO</div>
+
             <form onSubmit={handleFormSubmit} className={style.formcard}>
                 <div style={{display: "grid"}}>
                     <label htmlFor="nameInput" className={style.placeholder} >NOME</label>

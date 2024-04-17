@@ -150,8 +150,8 @@ const polygon = [
 
 
   return (
-    <div>
-        <MapContainer 
+    <div style={{display: "flex", justifyContent: "center", alignItems:"center"}}> 
+        <MapContainer style={{marginTop: "0vh"}}
         center={[-29.919007, -51.176190]} 
         zoom={11}>
         

@@ -4,22 +4,35 @@ import { jwtDecode } from "jwt-decode"; //{jwtDecode} - funciona / jwt_decode - 
 import FormComponent from "../components/FormComponent";
 import styles from "../styles/login.module.css";
 
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
+
+    const navigate = useNavigate()
+
     return(
-        <div className={styles.body}>
+        <div className={styles.body} >
             <FormComponent />
 
-            <div style={{marginBottom: "3vh", marginTop: "-3vh"}}> OU</div>
-            <GoogleLogin 
-            onSuccess={(credentialResponse) => {
-                const credentialDecode = jwtDecode(credentialResponse.credential);
-                console.log(credentialDecode)
-            }}
-            onError={() => { 
-            console.log("login falied")
-            }
-        }
-            />
+            <div style={{marginBottom: "3vh", marginTop: "-3vh"}}> OU </div>
+            
+            <div className={styles.googlebtn_card}>
+                <div className={styles.googlebtn}>
+                        <GoogleLogin 
+                        onSuccess={(credentialResponse) => {
+                            const credentialDecode = jwtDecode(credentialResponse.credential);
+                            console.log(credentialDecode)
+                            navigate("/world")
+                        }}
+                        onError={() => { 
+                        console.log("login falied")
+                        }
+                    }
+                        />
+                </div>
+            
+            </div>
+            
         </div>
     )
 }

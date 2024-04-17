@@ -1,5 +1,5 @@
 .formcomponent{
-    margin-top: -10vh;
+    
     
     display: grid;
     justify-content: center;
@@ -8,40 +8,53 @@
    
 }
 .logo{
-    margin-top: 10vh;
-    width: 30vh;
-    height: 20vh;
-    background-color: red;
-    margin-left: 5vh;
+  margin-top: 10vh;
+  width: 30vh;
+  height: 20vh;
+  background-color: red;
+  margin-left: 5vh;
 }
 .formcard{
-    display: grid;
-    justify-content: center;
-    margin: 5vh;
-    
-  }
+  display: grid;
+  justify-content: center;
+  margin: 5vh;
+  
+}
 
-  .placeholder{
-    text-align: left;
-    margin-left: 2vh;
-    font-size: 4vh;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
+.placeholder{
+  text-align: left;
+  margin-left: 2vh;
+  font-size: 4vh;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
-  .input{
-    border: 2vh transparent solid;
-    border-radius: 5vh;
-    font-size: 3vh;
-    background-color: rgb(17, 140, 240);
-    width: 30vh;
-    
-  }
+.input{
+  border: 2vh transparent solid;
+  border-radius: 5vh;
+  font-size: 3vh;
+  background-color: rgb(17, 140, 240);
+  width: 30vh;
+  color: white;
+  
+}
+.input:hover{
+  border: 10px white solid;
+  height: 7vh;
+  transition: 0.6s
+}
 
-  .submitbutton{
-    border: 2vh transparent solid;
-    border-radius: 5vh;
-    font-size: 3vh;
-    background-color: rgb(7, 61, 105);
-    width: 30vh;
-    color: white;
-  }
+.submitbutton{
+  border: 2vh transparent solid;
+  border-radius: 5vh;
+  font-size: 3vh;
+  background-color: #31369baa;
+  width: 30vh;
+  color: white;
+}
+.submitbutton:hover{
+  
+  border: 10px white solid;
+  height: 10vh;
+  transition: 1s;
+  background-color: #7bee7b;
+}

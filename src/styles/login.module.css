@@ -1,6 +1,19 @@
 .body{
     background: linear-gradient(to right, #31369baa, #7bee7b);
-    width: 100%;
-    height: 100vh;
+    height: 95vh;
+    
+    
+    
+}
+
+.googlebtn_card{
+    display: flex;
+    justify-content: center;
+   
+}
+
+.googlebtn{
+    width: 30vh;
+   
     
 }
