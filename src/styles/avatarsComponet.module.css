@@ -1,0 +1,16 @@
+.avatarsCard{
+    background-color: rgb(128, 229, 130);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    border-radius: 5vh;
+}
+.avatarsCard img {
+    width: 40vh;
+    height: 29vh;
+}
+.avatarsCard img:hover{
+    border-radius: 10vh;
+    background-color: rgb(36, 141, 226);
+}
