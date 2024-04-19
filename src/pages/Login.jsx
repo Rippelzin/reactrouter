@@ -4,17 +4,21 @@ import { jwtDecode } from "jwt-decode"; //{jwtDecode} - funciona / jwt_decode - 
 import FormComponent from "../components/FormComponent";
 import styles from "../styles/login.module.css";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 const Login = () => {
 
     const navigate = useNavigate()
 
+    function handleRedirect(){
+        navigate("/cadastro")
+    }
+
     return(
         <div className={styles.body} >
             <FormComponent />
 
-            <div style={{marginBottom: "3vh", marginTop: "-3vh"}}> OU </div>
+            <div style={{marginBottom: "1vh", marginTop: "-6vh", textAlign:"center", fontSize:"4vh", fontWeight:"bolder"}}> OU </div>
             
             <div className={styles.googlebtn_card}>
                 <div className={styles.googlebtn}>
@@ -32,6 +36,11 @@ const Login = () => {
                 </div>
             
             </div>
+            <div className={styles.btn_redirect}>
+                <button  onClick={handleRedirect} > Nao Possui Cadstro ainda? Cadastre-se Aqui </button>
+                
+            </div>
+            
             
         </div>
     )

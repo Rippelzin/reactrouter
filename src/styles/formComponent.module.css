@@ -8,9 +8,9 @@
    
 }
 .logo{
-  margin-top: 10vh;
+  margin-top: 5vh;
   width: 30vh;
-  height: 20vh;
+  height: 10vh;
   background-color: red;
   margin-left: 5vh;
 }
@@ -57,4 +57,21 @@
   height: 10vh;
   transition: 1s;
   background-color: #7bee7b;
+}
+
+.btn_redirect{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.btn_redirect button{
+  margin-top: 5vh;
+  width: 30vh;
+  color: rgb(235, 235, 235);
+  font-weight: bolder;
+  height: 10vh;
+  font-size: 2vh;
+  background: linear-gradient(to right, #1e2266aa, #33a533);
+  border-radius: 10vh;
 }

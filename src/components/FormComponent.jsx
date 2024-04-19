@@ -12,27 +12,33 @@ const FormComponent= () => {
 
 function handleFormSubmit(e){
     e.preventDefault();
-    navigate("/world")
     
-/*
-    axios.post("/endpoint", {
+    
+
+    axios.post("/token", {
         "username": name,
         "password": password
     })
     .then(function(response){
-        console.log(response)
-    }  
-    )
+        //pega toekn
+       const token  =  response.data.token;
+ 
+       //set token
+       localStorage.setItem("token", token);
+ 
+       //set token to headeer for every request(acho)
+       setAuthToken(token);
 
-    console.log("teste")
-*/
-    
+        navigate("/world")
+    })
+    .catch(err => console.log(err));
 }
 
     return(
         <div className={style.formcomponent}>
 
             <div className={style.logo}>LOGO</div>
+            <h2 >LOGIN</h2>
 
             <form onSubmit={handleFormSubmit} className={style.formcard}>
                 <div style={{display: "grid"}}>

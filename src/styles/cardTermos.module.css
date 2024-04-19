@@ -1,0 +1,46 @@
+.card{
+    height: 70vh;
+    width: 50vh;
+    background-color: rgb(52, 135, 244);
+    display: grid;
+   
+}
+.logoXrlab{
+    width: 80vh;
+    width: 35vh;
+    
+}
+.miniCard {
+    
+    background-color: white;
+    width: auto;
+    margin: 2vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1vh;
+    box-shadow: 0 8px 16px 0 rgba(1, 4, 0, 1); /* Sombra azul mais forte */
+}
+.card p {
+    text-align: center;
+    color: black;
+    font-size: 2vh;
+    font-weight: bolder;
+}
+.card button{
+    font-size: 2vh;
+    font-weight: bolder;
+    color: white;
+    margin-top: 2vh;
+    background-color: rgb(37, 84, 155);
+    width: 25vh;
+    height: 5vh;
+    border-radius: 5vh;
+}
+.card a{
+    text-align: center;
+    margin-top: 1vh;
+    font-size: 2vh;
+    color: blue;
+    
+}

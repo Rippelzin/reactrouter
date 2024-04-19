@@ -1,6 +1,6 @@
 .body{
     background: linear-gradient(to right, #31369baa, #7bee7b);
-    height: 95vh;
+    height: 110vh;
     
     
     
@@ -17,3 +17,21 @@
    
     
 }
+
+.btn_redirect{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .btn_redirect button{
+    margin-top: 5vh;
+    width: 30vh;
+    color: rgb(235, 235, 235);
+    font-weight: bolder;
+    height: 10vh;
+    font-size: 2vh;
+    background: linear-gradient(to right, #1e2266aa, #33a533);
+    border-radius: 5vh;
+  }
+  
