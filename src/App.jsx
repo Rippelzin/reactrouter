@@ -25,15 +25,24 @@ function App() {
 
   return (
     <div>
-     
-      <LogoComponent/>
-      
-      
-      
-      
-          <Navbar />
+      {
+        showImage ? (
+              <LogoComponent/>
+        ) : (
+          <div>
+            <Navbar />
 
-          <Outlet />
+            <Outlet />
+          </div>
+        )
+      }
+     
+      
+      
+      
+      
+      
+          
       
 
      
