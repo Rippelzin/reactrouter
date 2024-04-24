@@ -46,6 +46,7 @@ function LocationMarker() {
   })
   useEffect(() => {
     map.locate();
+    //console.log("componenet pai")
   }, []); // Executa somente uma vez, quando o componente é montado
 
 

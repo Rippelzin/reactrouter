@@ -10,7 +10,7 @@ const [menuOpen, setMenuOpen] = useState(false)
     return(
         <nav>
             <Link to={"/"} className={style.title}>
-                Up to 9.5
+                Up to 0.95
             </Link>
             <div className={style.menu} onClick={() => setMenuOpen(!menuOpen)}>
                 <span></span>
