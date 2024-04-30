@@ -24,8 +24,8 @@ function handleFormSubmit(e){
        const token  =  response.data.token;
  
        //set token
-       localStorage.setItem("token", token);
- 
+       localStorage.removeItem("token");
+        
        //set token to headeer for every request(acho)
        setAuthToken(token);
 

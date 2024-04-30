@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { Marker, Polygon, LayerGroup } from "react-leaflet";
+import { Marker, Polygon, LayerGroup, useMap } from "react-leaflet";
 import { useMemo, useState } from "react";
 import CardComponent from "./CardComponent";
-import { marker } from "leaflet";
+import MarkerComponent from "./MarkerComponent";
+
 
 const AreaComponent = ({data}) => {
 
@@ -26,10 +27,29 @@ const AreaComponent = ({data}) => {
   }, [showCard])
 
 
+  const map = useMap()
+
+  function returnCenterPolygon() {
+    const cords = data.positions
+    let latSum = 0
+    let longSum = 0
+    cords.map(cord => {
+      latSum += cord[0]
+      longSum += cord[1]
+      
+    })
+    
+    latSum = latSum/cords.length
+    longSum = longSum/cords.length
+    return([latSum, longSum])
+  }
+
     function handleClick(){
       setShowCard(!showCard)
       setRenderPopUps(!renderPopUps)
       console.log("clicou")
+      map.setView(returnCenterPolygon(), 16)
+      
     }
 
 
@@ -60,9 +80,15 @@ const AreaComponent = ({data}) => {
               />
               {renderPopUps && 
                 <LayerGroup checked name="just pop-ups">
+
                   {markers.map((marker,index) => 
-                    <Marker key={index} position={[marker.photoLatitude, marker.photoLongitude]}/>
+                    <MarkerComponent key={index} 
+                    props={{ lat: marker.photoLatitude,
+                             long:  marker.photoLongitude,
+                            image: "imagem"
+                          }}/>
                   )}
+
                 </LayerGroup>
               }
             </LayerGroup>

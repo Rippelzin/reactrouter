@@ -4,13 +4,16 @@ import {Camera } from "react-camera-pro-react-18";
 import axios from 'axios';
 
 
+
 const CameraComponent = () => {
   const camera = useRef(null);
   const [image, setImage] = useState(null);
   const [photoTaken, setPhotoTaken] = useState(false)
   const [latitude, setLatitude] = useState()
   const [longitude, setLongitude] = useState()
-  const [photoObject, setPhotoObj] = useState({})
+  const [photoURl, setPhotoUrl] = useState()
+
+  const [imageUrl, setImageUrl] = useState()
 
 
   function handleTakePhoto() {
@@ -36,19 +39,69 @@ const CameraComponent = () => {
 
   function handleSendPhoto() {
     
-    axios.post('/endpoint', {
-      photoImage: image,
-      photoLatitude: latitude,
-      photoLongitude: longitude
-    }).then(function (response) {
+   const imageConverted = handleConversion()
+   //setImageUrl(imageConverted)
+   //console.log(imageConverted)
+/*
+   axios.post('http://localhost:3000/tokens', {
+   
+    nickname: "augusto3",
+    password: "123456"
+  
+  }).then(function(response) {
+    console.log(response.data.token)
+  })
+
+  */
+
+  const headers = {
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzE0NDQwNjU5LCJleHAiOjE3NDU5OTgyNTl9.xMTwGmMHZkP1PLr61pzuGIzh2Xuok-_LZ3U8FKb5Rwc',
+    'Content-Type': 'application/json'
+  };
+  
+
+  
+  // Construção dos dados do formulário
+const formData = new FormData();
+formData.append('photo', image); // 'imageConverted' é a sua variável que contém o Blob da imagem
+formData.append('photoLatitude', latitude);
+formData.append('photoLongitude', longitude);
+  
+  axios.post('http://localhost:3000/photos', formData, { headers })
+    .then(function (response) {
       console.log(response);
     })
+    .catch(function (error) {
+      console.error(error);
+    });
 
-   console.log(image)
-   console.log(longitude, latitude)
+   //console.log(image)
+   //console.log(longitude, latitude)
    
 
     //console.log(photoObject)
+    
+   
+  }
+
+  function handleConversion(){
+     // Decode Base64 image data
+     //console.log(image)
+     const binaryData = atob(image.split(',')[1]);
+     const arrayBuffer = new ArrayBuffer(binaryData.length);
+     const uint8Array = new Uint8Array(arrayBuffer);
+     for (let i = 0; i < binaryData.length; i++) {
+       uint8Array[i] = binaryData.charCodeAt(i);
+     }
+     
+     // Create Blob from binary data
+     const blob = new Blob([uint8Array], { type: 'image/jpeg' });
+     console.log(blob)
+     const url = URL.createObjectURL(blob)
+
+     setPhotoUrl(url)
+     
+     return blob
   }
 
   useEffect(() => {
@@ -75,8 +128,13 @@ const CameraComponent = () => {
       
 
       { photoTaken ? ( 
-
+          
           <div className="send-Card">
+
+<div>
+            <p>Image uploaded successfully!</p>
+            <a href={photoURl} download="converted_image.jpg">Download aaa</a>
+          </div>
             <button onClick={comeBack}>X</button>
             <div style={{ display: 'flex', justifyContent: 'center'}}>
                 <img src={image} alt='Taken photo' className="imageTaken"/>

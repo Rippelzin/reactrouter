@@ -154,7 +154,7 @@ const polygon = [
     <div style={{display: "flex", justifyContent: "center", alignItems:"center"}}> 
         <MapContainer style={{marginTop: "0vh"}}
         center={[-29.919007, -51.176190]} 
-        zoom={11}>
+        zoom={14}>
         
         <TileLayer 
           attribution='&copy; <a href="https://www.openstreetmap.org/copyrigth">OpenStreetMap</a> contributors'
