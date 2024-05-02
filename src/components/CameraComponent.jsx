@@ -56,16 +56,15 @@ const CameraComponent = () => {
 
   const headers = {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzE0NDQwNjU5LCJleHAiOjE3NDU5OTgyNTl9.xMTwGmMHZkP1PLr61pzuGIzh2Xuok-_LZ3U8FKb5Rwc',
-    
   };
   
 
   
   // Construção dos dados do formulário
 const formData = new FormData();
-formData.append('photo', imageConverted); // 'imageConverted' é a sua variável que contém o Blob da imagem
-formData.append('longitude', latitude);
-formData.append('latitude', longitude);
+formData.append('photo', imageConverted, `${Date.now()}.jpeg`); // 'imageConverted' é a sua variável que contém o Blob da imagem
+formData.append('longitude', longitude);
+formData.append('latitude', latitude);
 console.log(formData)
   
   axios.post('http://localhost:3000/photos', formData, { headers })
