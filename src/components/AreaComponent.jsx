@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { Marker, Polygon, LayerGroup, useMap } from "react-leaflet";
 import { useMemo, useState } from "react";
-import CardComponent from "./CardComponent";
 import MarkerComponent from "./MarkerComponent";
+
+
 
 
 const AreaComponent = ({data}) => {
@@ -53,6 +54,8 @@ const AreaComponent = ({data}) => {
     }
 
 
+    
+
     const markers = [
       {
         "photoLatitude": -29.922930,
@@ -67,6 +70,8 @@ const AreaComponent = ({data}) => {
         "photoLongitude": -51.163361
       }
     ]
+
+    
     
     console.log(data.color)
     return( 
@@ -85,7 +90,7 @@ const AreaComponent = ({data}) => {
                     <MarkerComponent key={index} 
                     props={{ lat: marker.photoLatitude,
                              long:  marker.photoLongitude,
-                            image: "imagem"
+                             image: "imagem"
                           }}/>
                   )}
 

@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, useMap, Marker, Popup, useMapEvents, Polygon } from 'react-leaflet'
 import { Icon, icon, latLng } from "leaflet";
 import AreaComponent from "./AreaComponent";
-import CardComponent from "./CardComponent";
+import axios from "axios";
 
 
 const MapComponent = () => {
@@ -145,8 +145,15 @@ const polygon = [
     <AreaComponent key={area.id} data={area}/>
   )
   
-
-
+let resposta = {}
+useEffect(() => {
+  axios.get("http://localhost:3000/photos")
+  .then(function(response) {
+    console.log(response)
+  })
+  
+  
+}, [])
 
 
 
